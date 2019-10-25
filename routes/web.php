@@ -20,11 +20,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/users', 'UserController@index')->name('user.index');
 
-Route::resources([
-    'recipes'     => 'RecipeController',
-    'categories'  => 'CategoryController',
-    'ingredients' => 'IngredientController'
-]);
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::resources([
+        'recipes'     => 'RecipeController',
+        'categories'  => 'CategoryController',
+        'ingredients' => 'IngredientController'
+    ]);
+});
 
 Auth::routes();
 
