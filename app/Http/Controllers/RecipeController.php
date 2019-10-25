@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Recipe;
 
 class RecipeController extends Controller
-{
+{    
     /**
      * Display a listing of the resource.
      *
@@ -39,21 +39,12 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        // Eisen opstellen waar aan de data moet voldoen
-        // dat van het formulier afkomstig is.
-        // $validatedData = $request->validate([
-        //     'title' => 'required|unique:posts|max:255',
-        //     'body' => 'required',
-        // ]);
-
-
-        // Data wordt nu niet gevalideerd.
-        $recipe = new Recipe([
+        Recipe::create([
             'name'    => $request->input('name'),
-            'user_id' => auth()->user()->id
+            'user_id' => auth()->id()
         ]);
 
-        $recipe->save();
+        return redirect()->action('RecipeController@index');
     }
 
     /**
@@ -77,7 +68,7 @@ class RecipeController extends Controller
      */
     public function edit(Recipe $recipe)
     {
-         return view('recipes.edit', [
+        return view('recipes.edit', [
             'recipe' => Recipe::find($recipe->id)
         ]);
     }
@@ -89,21 +80,13 @@ class RecipeController extends Controller
      * @param  \App\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Recipe $recipe)
+    public function update(Request $request, $id)
     {
-        // Eisen opstellen waar aan de data moet voldoen
-        // dat van het formulier afkomstig is.
-        $validatedData = $request->validate([
-            'title' => 'required|unique:posts|max:255',
-            'body' => 'required',
-        ]);
-
-
-        // Validated data hier toewijzen aan het object zijn attributen
-        // zodat de nieuwe data wordt toegevoegd en daarna wordt opgeslagen.
-        // $recipe->field = ..
-
+        $recipe = Recipe::find($id);
+        $recipe->name = $request->input('name');
         $recipe->save();
+
+        return redirect()->action('RecipeController@index');
     }
 
     /**
@@ -112,8 +95,11 @@ class RecipeController extends Controller
      * @param  \App\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Recipe $recipe)
+    public function destroy($id)
     {
-        $recipe->destroy();
+        $recipe = Recipe::find($id);
+        $recipe->delete();
+
+        return redirect()->action('RecipeController@index');
     }
 }

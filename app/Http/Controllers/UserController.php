@@ -7,8 +7,6 @@ use App\User;
 
 class UserController extends Controller
 {
-    
-
     /**
      * Show the application dashboard.
      *
