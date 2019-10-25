@@ -1,32 +1,36 @@
-<a href="{{ route('recipes.create') }}" class="btn btn-success mb-2">Add</a>
+@extends('layouts.app')
+@section('content')
+
+<h1>Recipes</h1>
+
+<a href="{{ route('recipes.create') }}" class="btn btn-success mb-2">New Recipe</a>
 <br>
 <div class="row">
     <div class="col-12">
-
         <table class="table table-bordered" id="laravel_crud">
             <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Created at</th>
                     <th>Updated at</th>
-                    <td colspan="2">Action</td>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($recipes as $recipe)
                 <tr>
                     <td>{{ $recipe->id }}</td>
-                    <td>{{ $recipe->title }}</td>
-                    <td>{{ $recipe->product_code }}</td>
-                    <td>{{ $recipe->description }}</td>
-                    <td>{{ date('Y-m-d', strtotime($recipe->created_at)) }}</td>
-                    <td><a href="{{ route('products.edit',$recipe->id)}}" class="btn btn-primary">Edit</a></td>
+                    <td>{{ $recipe->name }}</td>
+                    <td class="form_date-field">{{ date('Y-m-d H:i', strtotime($recipe->created_at)) }}</td>
+                    <td class="form_date-field">{{ date('Y-m-d H:i', strtotime($recipe->updated_at)) }}</td>
                     <td>
-                        <form action="{{ route('products.destroy', $recipe->id)}}" method="post">
+                        <a href="{{ route('recipes.show', $recipe->id)}}" class="btn btn-primary">Show</a>
+                        <a href="{{ route('recipes.edit', $recipe->id)}}" class="btn btn-warning">Edit</a>
+                        <button class="btn btn-danger" type="submit" form="deleteForm" >Delete</button>
+                        <form id="deleteForm" action="{{ route('recipes.destroy', $recipe->id)}}" method="post">
                             {{ csrf_field() }}
-                            @method('DELETE')
-                            <button class="btn btn-danger" type="submit">Delete</button>
+                            @method('delete')
                         </form>
                     </td>
                 </tr>
@@ -35,3 +39,4 @@
         </table>
     </div>
 </div>
+@stop
