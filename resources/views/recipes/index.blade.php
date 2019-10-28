@@ -12,6 +12,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Description</th>
                     <th>Created at</th>
                     <th>Updated at</th>
                     <th>Actions</th>
@@ -22,6 +23,7 @@
                 <tr>
                     <td>{{ $recipe->id }}</td>
                     <td>{{ $recipe->name }}</td>
+                    <td>{{ $recipe->description }}</td>
                     <td class="form_date-field">{{ date('Y-m-d H:i', strtotime($recipe->created_at)) }}</td>
                     <td class="form_date-field">{{ date('Y-m-d H:i', strtotime($recipe->updated_at)) }}</td>
                     <td>

@@ -41,6 +41,7 @@ class RecipeController extends Controller
     {
         Recipe::create([
             'name'    => $request->input('name'),
+            'description'    => $request->input('description'),
             'user_id' => auth()->id()
         ]);
 
@@ -84,6 +85,7 @@ class RecipeController extends Controller
     {
         $recipe = Recipe::find($id);
         $recipe->name = $request->input('name');
+        $recipe->description = $request->input('description');
         $recipe->save();
 
         return redirect()->action('RecipeController@index');
