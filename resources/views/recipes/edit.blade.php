@@ -12,6 +12,12 @@
         <label>Name</label>
         <input name="name" type="text" class="form-control" value="{{ $recipe->name }}">
     </div>
+
+    <div class="form-group">
+        <label>Description</label>
+        <textarea name="description" rows="15" cols="53" class="form-control" value="{{ $recipe->description }}"></textarea>
+    </div>
+
     <button type="submit" class="btn btn-primary">Edit Recipe</button>
 </form>
 

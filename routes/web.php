@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/users', 'UserController@index')->name('user.index');
+// Route::get('/users', 'UserController@index')->name('user.index');
 
 
 Route::group(['middleware' => 'auth'], function() {
@@ -33,6 +33,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+Route::prefix('/profile')->group(function() {
+Route::get('/', 'ProfileController@index')->name('profile.show');
+// Route::get('/edit', 'ProfileController@edit');
+// Route::get('/', 'ProfileController@update');
+});
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+
+
