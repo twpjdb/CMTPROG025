@@ -43,6 +43,14 @@ Route::prefix('/admin')->group(function() {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
+
+    Route::get('/recipes', 'AdminRecipeController@Index');
+    Route::get('/recipes/create', 'AdminRecipeController@Create');
+    Route::post('/recipes', 'AdminRecipeController@Store');
+    Route::get('/recipes/{recipe}', 'AdminRecipeController@Show');
+    Route::get('/recipes/{recipe}/edit', 'AdminRecipeController@Edit');
+    Route::patch('/recipes/{recipe}', 'AdminRecipeController@Update');
+    Route::delete('/recipes/{recipe}', 'AdminRecipeController@Destroy');
     
 
 });

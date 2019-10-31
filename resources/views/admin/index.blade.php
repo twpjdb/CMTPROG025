@@ -2,6 +2,6 @@
 
 @section('content')
 
-<p>kanker</p>
+<a href="/admin/recipes">Recipes</a>
 
 @endsection
