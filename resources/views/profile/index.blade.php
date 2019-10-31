@@ -3,9 +3,9 @@
 @section('content')
 
 
-<p>{{ $user->name }}</p>
+<p>Username: <strong>{{ $user->name }}</strong></p>
 
-<p>{{ $user->email }}</p>
+<p>Email: <strong>{{ $user->email }}</strong></p>
 
 <a href="/profile/edit">Edit</a>
 
