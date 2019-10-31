@@ -23,5 +23,28 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function edit() 
+    {
+        $user = User::findOrFail(Auth::user()->id);
+
+        return view('profile.edit', compact('user'));
+    }
+
+    public function update()
+    {
+        $user = User::findOrFail(Auth::user()->id);
+
+        $user->update($this->validateData());
+        
+        return redirect('/profile');
+    }
+
+    protected function validateData() 
+    {
+        return request()->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+        ]);
+    }
 
 }

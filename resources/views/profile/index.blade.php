@@ -7,4 +7,6 @@
 
 <p>{{ $user->email }}</p>
 
+<a href="/profile/edit">Edit</a>
+
 @endsection 

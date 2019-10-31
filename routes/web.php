@@ -35,8 +35,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('/profile')->group(function() {
 Route::get('/', 'ProfileController@index')->name('profile.show');
-// Route::get('/edit', 'ProfileController@edit');
-// Route::get('/', 'ProfileController@update');
+Route::get('/edit', 'ProfileController@edit');
+Route::patch('/', 'ProfileController@update');
 });
 
 
