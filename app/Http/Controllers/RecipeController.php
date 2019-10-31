@@ -61,47 +61,47 @@ class RecipeController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Recipe  $recipe
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Recipe $recipe)
-    {
-        return view('recipes.edit', [
-            'recipe' => Recipe::find($recipe->id)
-        ]);
-    }
+    // /**
+    //  * Show the form for editing the specified resource.
+    //  *
+    //  * @param  \App\Recipe  $recipe
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function edit(Recipe $recipe)
+    // {
+    //     return view('recipes.edit', [
+    //         'recipe' => Recipe::find($recipe->id)
+    //     ]);
+    // }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Recipe  $recipe
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $recipe = Recipe::find($id);
-        $recipe->name = $request->input('name');
-        $recipe->description = $request->input('description');
-        $recipe->save();
+    // /**
+    //  * Update the specified resource in storage.
+    //  *
+    //  * @param  \Illuminate\Http\Request  $request
+    //  * @param  \App\Recipe  $recipe
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function update(Request $request, $id)
+    // {
+    //     $recipe = Recipe::find($id);
+    //     $recipe->name = $request->input('name');
+    //     $recipe->description = $request->input('description');
+    //     $recipe->save();
 
-        return redirect()->action('RecipeController@index');
-    }
+    //     return redirect()->action('RecipeController@index');
+    // }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Recipe  $recipe
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $recipe = Recipe::find($id);
-        $recipe->delete();
+    // /**
+    //  * Remove the specified resource from storage.
+    //  *
+    //  * @param  \App\Recipe  $recipe
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function destroy($id)
+    // {
+    //     $recipe = Recipe::find($id);
+    //     $recipe->delete();
 
-        return redirect()->action('RecipeController@index');
-    }
+    //     return redirect()->action('RecipeController@index');
+    // }
 }

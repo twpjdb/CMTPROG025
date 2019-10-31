@@ -28,12 +28,6 @@
                     <td class="form_date-field">{{ date('Y-m-d H:i', strtotime($recipe->updated_at)) }}</td>
                     <td>
                         <a href="{{ route('recipes.show', $recipe->id)}}" class="btn btn-primary">Show</a>
-                        <a href="{{ route('recipes.edit', $recipe->id)}}" class="btn btn-warning">Edit</a>
-                        <button class="btn btn-danger" type="submit" form="deleteForm" >Delete</button>
-                        <form id="deleteForm" action="{{ route('recipes.destroy', $recipe->id)}}" method="post">
-                            {{ csrf_field() }}
-                            @method('delete')
-                        </form>
                     </td>
                 </tr>
                 @endforeach
