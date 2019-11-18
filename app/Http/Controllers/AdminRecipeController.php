@@ -12,6 +12,13 @@ class AdminRecipeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function __construct() 
+    {
+        $this->middleware('auth:admin');
+    }
+
     public function index()
     {
         return view('admin.recipes', [
@@ -39,9 +46,17 @@ class AdminRecipeController extends Controller
      */
     public function store(Request $request)
     {
+
+        $data = request()->validate([
+            'name' => 'required',
+            'category' => 'required',
+            'description' => 'required',
+        ]);
+
         Recipe::create([
-            'name'    => $request->input('name'),
-            'description'    => $request->input('description'),
+            'name'    => $data->input('name'),
+            'category' => $data->input('category'),
+            'description'    => $data->input('description'),
             'user_id' => auth()->id()
         ]);
 
@@ -81,11 +96,13 @@ class AdminRecipeController extends Controller
     {
         $data = request()->validate([
             'name' => 'required',
+            'category' => 'required',
             'description' => 'required',
         ]);
 
         $recipe->update([
             'name' => $data['name'],
+            'category' => $data['category'],
             'description' => $data['description']
         ]);
 
@@ -100,6 +117,7 @@ class AdminRecipeController extends Controller
      */
     public function destroy(Recipe $recipe)
     {
+        
         $recipe->delete();
 
         return redirect('/admin/recipes');

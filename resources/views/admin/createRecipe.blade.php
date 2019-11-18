@@ -12,6 +12,22 @@
         <input name="name" type="text" class="form-control">
     </div>
 
+    <div>
+    <label for="category">Category</label>
+    <select name="category">
+        <option value=""> --Select--</option>
+        <option value="Pizza">Stamppot</option>
+        <option value="Sushi">Sushi</option>
+        <option value="Burgers">Burgers</option>
+        <option value="Chinees">Chinees</option>
+        <option value="Kip">Kip</option>
+        <option value="Surinaams">Surinaams</option>
+        <option value="Thais">Thais</option>
+        <option value="Grieks">Grieks</option> 
+    </select>
+    @error('category') <p style="color: red">{{ $message }}</p> @enderror
+</div>
+
     <div class="form-group">
         <label>Description</label>
     </div>

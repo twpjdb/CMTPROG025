@@ -39,9 +39,18 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
+
+
+        $data = request()->validate([
+            'name' => 'required',
+            'category' => 'required',
+            'description' => 'required',
+        ]);
+
         Recipe::create([
-            'name'    => $request->input('name'),
-            'description'    => $request->input('description'),
+            'name'    => $data->input('name'),
+            'category' => $data->input('category'),
+            'description'    => $data->input('description'),
             'user_id' => auth()->id()
         ]);
 
