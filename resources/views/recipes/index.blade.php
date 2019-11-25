@@ -3,6 +3,18 @@
 
 <h1>Recipes</h1>
 
+<form action="/search" method="POST" role="search">
+        @csrf
+        <div class="input-group">
+            <input type="text" class="form-control" name="search" autocomplete="off"
+                placeholder="Search restaurants"> <span class="input-group-btn">
+                <button type="submit" class="btn btn-default">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+        </div>
+    </form>
+
 <a href="{{ route('recipes.create') }}" class="btn btn-success mb-2">New Recipe</a>
 <br>
 <div class="row">

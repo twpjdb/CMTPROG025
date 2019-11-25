@@ -25,9 +25,11 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resources([
         'recipes'     => 'RecipeController',
         'categories'  => 'CategoryController',
-        'ingredients' => 'IngredientController'
+        'ingredients' => 'IngredientController',
     ]);
 });
+
+Route::any('/search', 'SearchController@search');
 
 Auth::routes();
 
