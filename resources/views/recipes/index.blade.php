@@ -3,6 +3,8 @@
 
 <h1>Recipes</h1>
 
+<a href="{{ route('recipes.create') }}" class="btn btn-success mb-2">New Recipe</a>
+
 <form action="/search" method="POST" role="search">
         @csrf
         <div class="input-group">
@@ -15,7 +17,16 @@
         </div>
     </form>
 
-<a href="{{ route('recipes.create') }}" class="btn btn-success mb-2">New Recipe</a>
+    
+
+
+    <a href="/recipes/?category=Stamppot">Stamppot</a> |
+    <a href="/recipes/?category=Soul food">Soul food</a> |
+    <a href="/recipes/?category=Kaapverdiaans">Kaapverdiaans</a> |
+    <a href="/recipes/?category=BBQ">BBQ</a> |
+    <strong><a href="/recipes">Reset</a></strong>
+
+
 <br>
 <div class="row">
     <div class="col-12">

@@ -54,9 +54,9 @@ class AdminRecipeController extends Controller
         ]);
 
         Recipe::create([
-            'name'    => $data->input('name'),
-            'category' => $data->input('category'),
-            'description'    => $data->input('description'),
+            'name'    => $data['name'],
+            'category' => $data['category'],
+            'description'    => $data['description'],
             'user_id' => auth()->id()
         ]);
 
