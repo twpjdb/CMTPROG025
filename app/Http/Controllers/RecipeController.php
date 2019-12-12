@@ -14,10 +14,21 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        return view('recipes.index', [
-            'recipes' => Recipe::all()
-        ]);
-    }
+
+        if (request()->has('category')) {
+
+            $recipes = Recipe::where(function($recipe){
+                $recipe->where('category', request('category'));
+            })->paginate(10)->appends('category', request('category'));
+    
+         }
+         else {
+            $recipes = Recipe::all();
+            }
+    
+            return view('recipes.index', compact('recipes'));
+        }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -48,9 +59,9 @@ class RecipeController extends Controller
         ]);
 
         Recipe::create([
-            'name'    => $data->input('name'),
-            'category' => $data->input('category'),
-            'description'    => $data->input('description'),
+            'name'    => $data['name'],
+            'category' => $data['category'],
+            'description' => $data['description'],
             'user_id' => auth()->id()
         ]);
 
