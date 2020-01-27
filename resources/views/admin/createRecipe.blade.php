@@ -15,11 +15,15 @@
     <div>
     <label for="category">Category</label>
     <select name="category">
-        <option value=""> --Select--</option>
+    <option value=""> --Select--</option>
+        <option value="Surinaams">Surinaams</option>
         <option value="Stamppot">Stamppot</option>
-        <option value="Soul food">Soul food</option>
-        <option value="Kaapverdiaans">Kaapverdiaans</option>
-        <option value="BBQ">BBQ</option> 
+        <option value="Sushi">Sushi</option>
+        <option value="Burgers">Burgers</option>
+        <option value="Chinees">Chinees</option>
+        <option value="Kip">Kip</option>
+        <option value="Thais">Thais</option>
+        <option value="Grieks">Grieks</option> 
     </select>
     @error('category') <p style="color: red">{{ $message }}</p> @enderror
 </div>

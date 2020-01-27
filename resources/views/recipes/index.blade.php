@@ -20,10 +20,14 @@
     
 
 
+    <a href="/recipes/?category=Surinaams">Surinaams</a> |
     <a href="/recipes/?category=Stamppot">Stamppot</a> |
-    <a href="/recipes/?category=Soul food">Soul food</a> |
-    <a href="/recipes/?category=Kaapverdiaans">Kaapverdiaans</a> |
-    <a href="/recipes/?category=BBQ">BBQ</a> |
+    <a href="/recipes/?category=Sushi">Sushi</a> |
+    <a href="/recipes/?category=Burgers">Burgers</a> |
+    <a href="/recipes/?category=Chinees">Chinees</a> |
+    <a href="/recipes/?category=Kip">Kip</a> |
+    <a href="/recipes/?category=Thais">Thais</a> |
+    <a href="/recipes/?category=Grieks">Grieks</a> 
     <strong><a href="/recipes">Reset</a></strong>
 
 

@@ -5,6 +5,7 @@
 
 <a href="{{ url('/admin/recipes/create') }}" class="btn btn-success mb-2">New Recipe</a>
 <br>
+
 <div class="row">
     <div class="col-12">
         <table class="table table-bordered" id="laravel_crud">

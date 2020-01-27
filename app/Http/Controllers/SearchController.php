@@ -20,7 +20,7 @@ class SearchController extends Controller
         return view('recipes.search')->withDetails($recipe)->withQuery($search);
 
         else return view ('recipes.search', [
-            'errorMessage' => 'Jammer man ik heb niks gevonden, probeer het nog eens xDDD',
+            'errorMessage' => 'Niks gevonden',
         ]);
     }
 }
